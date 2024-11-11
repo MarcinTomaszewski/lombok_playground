@@ -1,5 +1,12 @@
 package pl.vistula;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Objects;
+
+@Setter
+@Getter
 public class Car {
     private String model;
     private String brand;
@@ -15,40 +22,6 @@ public class Car {
         this.sum = sum;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-    public String getColor() {
-        return color;
-    }
-    public int getPrice() {
-        return price;
-    }
-
-    public int getSum() {
-        return sum;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
@@ -58,6 +31,19 @@ public class Car {
                 ", price=" + price +
                 ", sum=" + sum +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return price == car.price && sum == car.sum && Objects.equals(model, car.model) && Objects.equals(brand, car.brand) && Objects.equals(color, car.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, brand, color, price, sum);
     }
 
     public void delivery(int sum) {
