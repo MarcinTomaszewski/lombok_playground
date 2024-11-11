@@ -4,8 +4,8 @@ import static java.lang.System.*;
 
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("Berlingo","Citroen", 80000, "red", 50);
-        Car car2 = new Car("Berlingo","C5", 80000, "red", 50);
+        Car car1 = new Car("GLE","Mercedes", "red", 80000, 50);
+        Car car2 = new Car("GLC","Mercedes", "red", 80000, 50);
 
         out.println("Are these objects equal? " + car1.equals(car2));
         out.println("Hashcode car1 is : " + car1.hashCode());
