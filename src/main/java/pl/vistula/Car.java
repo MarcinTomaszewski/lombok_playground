@@ -1,15 +1,18 @@
 package pl.vistula;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 public class Car {
     private String model;
-    private String brand;
-    private String color;
+    @EqualsAndHashCode.Include private String brand;
+    private int year;
     private int price;
+    private String color;
     private int sum;
 
     public void delivery(int sum) {
